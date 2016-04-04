@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* STYLE */
+
+html, body {
+  font-family: "Lato", sans-serif !important;
+  font-size: 16px !important;
+  height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+.navbar-default {
+  border: none !important;
+}
+.navbar-brand {
+  color: #000 !important;
+}
+footer {
+  margin-top: 50px;
+  padding: 50px 0;
+  color: #fff;
+  background-color: #000;
+}
+
+footer .xicon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  color: #fff;
+}
+footer .xicon:hover {
+  border: 2px solid #337ab7;
+  color: #337ab7;
+}
+
+/* UTILS */
+
+.xratio {
+  position: relative;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.xratio:before {
+  content: "";
+  display: block;
+}
+.xcover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.xratio-1-1:before {
+  padding-top: 100%;
+}
+.xratio-4-3:before {
+  padding-top: 75%;
+}
+.xtable {
+  display: table;
+}
+.xcell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.xcell-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+.xwh100 {
+  width: 100%;
+  height: 100%;
+}
+.xicon {
+  display: inline-block;
+  text-align: center;
+  font-family: FontAwesome, Tahoma;
+  text-decoration: none;
+}
+.xicon:hover {
+  text-decoration: none;
+}
+.xbgimg {
+  background-size: cover;
+  background-position: center;
+}

@@ -1,0 +1,76 @@
+{% extends "_generic_page.html" %} {% set album_json = fb_json("#{collection_id}/?fields=name,photos{name,picture,images}") %} {% set album = json_decode(album_json) %} {% block head %}
+<title>{{album.name}}</title>
+<link rel="stylesheet" href="css/zoomzoom.css" />
+<link rel="stylesheet" href="css/collection.css" /> {% endblock %} {% block foot %}
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/zoomzoom.js"></script>
+<script src="js/collection.js"></script>
+{% endblock %} {% block body %}
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1526653190913520";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="container">
+  <h3>{{album.name}}</h3>
+  <p>
+    <div class="fb-like" data-href="http://local.host/rubtsova/collection.php?collection_id={{collection_id}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+  </p>
+  <hr>
+  <div class="row masonry">
+
+    {% for photo in album.photos.data %} {% set image = parse_images(photo.images,'width',400) %}
+
+    <div class="product col-xs-12 col-sm-4 col-md-3 masonry-item">
+      <div class="product-image" data-toggle="modal" data-target="#quick-view-modal" data-big-img="{{image.max.source}}" data-title="embroidered top & shorts" data-prise="£27" data-desc="lorem ipsum dolor sit amet" data-pid="{{photo.id}}">
+
+        <a style="cursor:pointer" data-href="#&pid={{photo.id}}">
+          <img src="{{image.fit.source}}">
+        </a>
+        <a type="button" class="btn btn-sm btn-primary">QUICK VIEW</a>
+      </div>
+      <h5>embroidered top & shorts</h5>
+      <h5 class="prize">£27</h5>
+    </div>
+
+    {% endfor %}
+  </div>
+  <hr>
+</div>
+
+<!-- QUICK-VIEW -->
+<div id="quick-view-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="aria-labelledby">
+  <button type="button" class="close fa fa-times" data-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:15px">
+      <div class="row">
+        <div class="col-md-6 col-full-height">
+          <div class="image-container xwh100" style="background-color:#000">
+            <img class="image" src="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 class="title"></h3>
+          <hr>
+          <div class="fb-like" data-href="http://local.host/rubtsova/collection.php?collection_id={{collection_id}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+          <h2 class="prise"></h2>
+          <hr>
+          <button type="button" class="btn btn-primary btn-lg">ORDER NOW</button>
+          <hr>
+          <p class="desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /QUICK-VIEW -->
+
+{% endblock %}

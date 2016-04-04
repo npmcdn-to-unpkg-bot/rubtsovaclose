@@ -1,0 +1,46 @@
+/* LANDING */
+
+section {
+  padding-top: 69px;
+  position: relative;
+}
+.navbar-default {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.navbar-default {
+  border: none !important;
+}
+@media (min-width:768px) {
+  .navbar-cover {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: transparent !important;
+    padding-top: 50px;
+  }
+}
+.navbar-brand {
+  color: #000 !important;
+}
+.jumbotron {
+  min-height: 100%;
+  background-image: url('https://c1.staticflickr.com/3/2521/3742495137_b99f0c0387_b.jpg');
+  background-size: cover;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+header.marquee {
+  padding-top: 220px;
+  text-align: center;
+  color: #000;
+}
+header.marquee a {
+  color: #000;
+}
+header.marquee a:hover {
+  text-decoration: none;
+}

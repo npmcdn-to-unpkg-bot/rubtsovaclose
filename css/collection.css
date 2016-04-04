@@ -1,0 +1,42 @@
+.product .prize {
+  color: green;
+}
+.product-image {
+  position: relative;
+}
+.product-image img {
+  width: 100%;
+}
+.product-image .btn {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  right: 0;
+}
+.product-image:hover .btn {
+  display: block;
+}
+
+#quick-view-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#quick-view-modal .modal-dialog {
+  width: 80%;
+  margin: 10px auto;
+}
+#quick-view-modal .modal-content {
+  border-radius: 0
+}
+#quick-view-modal .close {
+  text-shadow: none;
+  opacity: 1;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 25px;
+  color: #bbb;
+}
+#quick-view-modal .close:hover {
+  color: #fff;
+  opacity: 1;
+}

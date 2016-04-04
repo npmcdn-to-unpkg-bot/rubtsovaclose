@@ -1,0 +1,24 @@
+.zoomzoom {
+  overflow: hidden !important;
+  position: relative !important;
+}
+.zoomzoom-o > img {
+  width: auto !important;
+  cursor: move;
+}
+.zoomzoom-v > img {
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: zoom-in;
+}
+.zoomzoom-h > img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: zoom-in;
+}

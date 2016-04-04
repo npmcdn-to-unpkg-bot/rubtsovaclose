@@ -1,0 +1,95 @@
+{% extends "_base.html" %}{% block head %}
+
+<title>rubtsova close</title>
+<link rel="stylesheet" href="css/index.css"></link>
+
+{% endblock %} {% block foot %}
+<script src="js/index.js"></script>
+{% endblock %} {% set albums = fb('rubtsovaclose/?fields=albums{id,name,description,cover_photo{images}}').albums.data %} {% block nav %}
+<nav class="navbar navbar-default navbar-fixed-top navbar-cover">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><h4>RBC</h4></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#collections"><h4>collections</h4></a></li>
+        <li><a href="#about"><h4>about</h4></a></li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+{% endblock %} {% block body %}
+<div class="jumbotron">
+  <header class="marquee">
+    <div class="container">
+      <h1>Rubtsova Close</h1>
+      <a href="#collections"><h4>#notrends #uniquestyle #collections</h4></a>
+    </div>
+  </header>
+</div>
+
+<div class="container">
+
+  <section id="collections">
+
+    <h1>collections</h1>
+    <hr>
+
+    <div class="row masonry">
+
+      {% for album in filter_objects(albums,'description','*#collection*', 10) %} {% set image = parse_images(album.cover_photo.images,'width',400) %}
+
+      <div class="col-md-4 masonry-item">
+        <div class="xratio xratio-4-3">
+          <a class="xcover xbgimg" href="collection.php?collection_id={{album.id}}" style="background-image:url('{{image.fit.source}}'); background-position:center top;">
+          </a>
+        </div>
+        <h4>{{album.name}}</h4>
+        <p>{{album.description}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p>
+    </p>
+  </section>
+
+  <hr>
+  <section id="about">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1>about</h1>
+        <p>
+          RubtsovaClose – внетрендовый, обладающий уникальным, узнаваемым стилем, бренд одежды.
+        </p>
+        <p>
+          Одежда и аксессуары RubtsovaClose для тех, кто сам определяет свой стиль, а не слепо следует модным трендам, кто активен, любит комфорт и живет приключениями, для кого свобода – не формальность.
+        </p>
+        <p>
+          Основа коллекций бренда – уникальные в своём роде вещи-трансформеры, призванные воплощать самые смелые, авторские идеи для имиджа. Одна вещь может носиться во множестве вариаций, позволяя её обладателю выглядеть стильно в соответствии с любыми обстоятельствами,
+          сохраняя при этом неотъемлемый комфорт RubtsovaClose.
+        </p>
+        <p>
+          Всецело посвящая себя идее, мы создаём стиль, качество и комфорт, уникальным образом воплощаемые в узнаваемую одежду с душой.
+        </p>
+        <p>
+          RubtsovaClose - Style That You Choose
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+</div>
+
+{% endblock %}
